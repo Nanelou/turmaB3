@@ -7,10 +7,13 @@ const listaDeTeclas = document.querySelectorAll(".tecla");
 
 //criar a variavel de contagem
 let contador = 0;
-//laço de repetição While
+//laço de repetição While com referncias efeito, idAudio e função tocaSom
 while(contador < 9){
 //chamada para tocar o som pelo índice do elemento da lista
-listaDeTeclas[contador].onclick = tocaSomAplausos;
+const efeito = listaDeTeclas[contador].classList[1];
+const idAudio = "#som_" + efeito;
+listaDeTeclas[contador].onclick = function()
+{tocaSom ("idAudio");}
 contador = contador + 1;
 console.log (contador);
 }
