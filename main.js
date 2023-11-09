@@ -4,17 +4,15 @@ function tocaSom(idElementoaudio){
 }
 //referencia constante listaDeTeclas que busca todas as classes tecla
 const listaDeTeclas = document.querySelectorAll(".tecla");
-
-//criar a variavel de contagem
-let contador = 0;
-//laço de repetição While com referncias efeito, idAudio e função tocaSom
-while(contador < 9){
+//laço de repetição While trocado pelo "for"  tecla, efeito, idAudio e função tocaSom
+for(let contador = 0; contador < listaDeTeclas.length; contador = contador + 1){
+    const tecla = listaDeTeclas[contador];
 //chamada para tocar o som pelo índice do elemento da lista
-const efeito = listaDeTeclas[contador].classList[1];
-const idAudio = "#som_" + efeito;
-listaDeTeclas[contador].onclick = function()
-{tocaSom ("idAudio");}
-contador = contador + 1;
-console.log (contador);
+const efeito = tecla.classList[1]; //busca do item 1 dos botões
+const idAudio = '#som_${efeito}'; //uso do template string
+tecla.onclick = function(){ //função anônima
+tocaSom ("idAudio");
+}
+//console.log (contador);
 }
 
